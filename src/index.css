@@ -1,0 +1,18 @@
+/* src/styles/tailwind.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@layer utilities {
+  .hover\:filter:hover {
+    filter: blur(4px); /* Điều chỉnh màu blur tùy thích */
+  }
+
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+  }
+
+  .group:hover .group-hover\:scale-100 {
+    transform: scale(1);
+  }
+}
