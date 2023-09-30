@@ -17,22 +17,20 @@ export default {
     }
   },
   screens: {
-    'xs': '0px',
-    // => @media (min-width: 640px) { ... } mobile
     'sm': '640px',
-    // => @media (min-width: 640px) { ... } tablet
+    // => @media (min-width: 640px) { ... }
 
     'md': '768px',
-    // => @media (min-width: 768px) { ... } untra tablet
+    // => @media (min-width: 768px) { ... }
 
     'lg': '1024px',
-    // => @media (min-width: 1024px) { ... } // laptop
+    // => @media (min-width: 1024px) { ... }
 
     'xl': '1280px',
-    // => @media (min-width: 1280px) { ... } // untra laptop
+    // => @media (min-width: 1280px) { ... }
 
     '2xl': '1536px',
-    // => @media (min-width: 1536px) { ... } // desktop
+    // => @media (min-width: 1536px) { ... }
   },
   // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],

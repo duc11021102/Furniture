@@ -11,16 +11,27 @@ const BrowseTheRange = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
         <div className="flex flex-row justify-center gap-20 mt-10">
-          <div className="w-72">
-            <img src={dinning} className=" w-72 h-96 object-cover rounded-xl" />
+          <div className=" lg:w-60 2xl:w-72 ">
+            <img
+              src={dinning}
+              className=" w-full lg:h-72  2xl:h-96  object-cover rounded-xl"
+            />
             <p className="text-xl font-extrabold mt-4">Dinning</p>
           </div>
-          <div className="w-72">
-            <img src={living} className=" w-72 h-96 object-cover rounded-xl" />
+
+          <div className="lg:w-60 2xl:w-72">
+            <img
+              src={living}
+              className=" w-full lg:h-72 2xl:h-96 object-cover rounded-xl"
+            />
             <p className="text-xl font-extrabold mt-4">Living</p>
           </div>
-          <div className="w-72">
-            <img src={bedroom} className=" w-72 h-96 object-cover rounded-xl" />
+
+          <div className="lg:w-60 2xl:w-72">
+            <img
+              src={bedroom}
+              className=" w-full lg:h-72  2xl:h-96 object-cover rounded-xl"
+            />
             <p className="text-xl font-extrabold mt-4">Bedroom</p>
           </div>
         </div>

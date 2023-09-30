@@ -1,4 +1,5 @@
-import { lazy, useState } from "react";
+/* eslint-disable react/prop-types */
+import { lazy, useState, useEffect, useCallback } from "react";
 import { defer, json, Await, useLoaderData } from "react-router-dom";
 import { Suspense } from "react";
 const LoadingPage = lazy(() => import("./LoadingPage"));
@@ -9,28 +10,36 @@ const FilterItems = lazy(() =>
 const ProductsGrid = lazy(() =>
   import("../components/ProductsComponents/ProductsGrid")
 );
-
 const ProductsList = lazy(() =>
   import("../components/ProductsComponents/ProductsList")
 );
+const Policy = lazy(() => import("../components/ProductsComponents/Policy"));
 
 const ProductPage = () => {
   const { products } = useLoaderData();
-  // const [layout, setLayout] = useState("grid");
+  const [layout, setLayout] = useState("grid");
 
-  // const layoutHandler = (swapLayout) => {
-  //   setLayout(swapLayout);
-  //   console.log(swapLayout);
-  // };
+  const swapLayoutHandler = useCallback((layout) => {
+    console.log(layout);
+    setLayout(layout);
+  }, []);
+
+  // scroll to top when render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="w-full">
       <Suspense fallback={<LoadingPage />}>
         <Banner />
-        <FilterItems />
-        {/* <FilterItems swapLayout={layoutHandler} /> */}
+        <FilterItems swapLayout={swapLayoutHandler} />
         <Await resolve={products}>
-          {(loaderProducts) => <ProductsGrid products={loaderProducts} />}
+          {layout === "grid"
+            ? (loaderProducts) => <ProductsGrid products={loaderProducts} />
+            : (loaderProducts) => <ProductsList products={loaderProducts} />}
         </Await>
+        <Policy />
       </Suspense>
     </section>
   );

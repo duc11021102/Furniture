@@ -8,13 +8,13 @@ const MainFooter = lazy(() =>
 );
 const Root = () => {
   return (
-    <>
+    <div className="">
       <MainNavigation />
       <main>
         <Outlet />
       </main>
       <MainFooter />
-    </>
+    </div>
   );
 };
 export default Root;

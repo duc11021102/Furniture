@@ -3,9 +3,8 @@ import { useState } from "react";
 import { CiSliderHorizontal } from "react-icons/ci";
 import { FiGrid } from "react-icons/fi";
 import { FiMenu } from "react-icons/fi";
-const FilterItems = () => {
+const FilterItems = (props) => {
   const [layout, setLayout] = useState("grid");
-  // props.swapLayout(layout);
   return (
     <section className="w-full px-20 py-6 bg-orange-50 flex justify-between font-body">
       <div className="flex items-center justify-center gap-4">
@@ -15,6 +14,7 @@ const FilterItems = () => {
           <FiGrid
             onClick={() => {
               setLayout("grid");
+              props.swapLayout("grid");
             }}
             className={
               layout === "grid"
@@ -25,6 +25,7 @@ const FilterItems = () => {
           <FiMenu
             onClick={() => {
               setLayout("list");
+              props.swapLayout("list");
             }}
             className={
               layout === "list"

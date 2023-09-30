@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
 // import itemImg from "../../../assets/imageItem.webp";
-
+// sm tu 640 do len
+// md tu 768 do len
+// lg tu 1024 do len
+// xl tu 1280 do len
 const ProductItem = (props) => {
   return (
-    <div className="relative w-72 group block font-body bg-gray-100 ease-out duration-200 hover:scale-95">
+    <div className="relative lg:w-44 xl:w-60 2xl:w-72  group block font-body bg-gray-100 ease-out duration-200 hover:scale-95">
       <img
         src={`http://localhost:8080/` + props.image}
-        className="object-cover w-72 h-72"
+        className="object-cover w-full lg:h-44  xl:h-60 2xl:h-72"
       ></img>
       <button
         className="absolute inset-0 w-full h-full bg-gray-800 bg-opacity-60

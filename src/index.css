@@ -3,6 +3,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @layer utilities {
   .hover\:filter:hover {
     filter: blur(4px); /* Điều chỉnh màu blur tùy thích */
