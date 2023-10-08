@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const ItemList = (props) => {
   return (
-    <div className="w-full flex justify-between shadow-lg rounded-lg py-5 px-7 hover:shadow-2xl duration-200">
+    <Link
+      to={`/products/${props.id}`}
+      className="w-full flex justify-between shadow-lg rounded-lg py-5 px-7 hover:shadow-2xl duration-200"
+    >
       <div className="flex gap-20 ">
         <img
           src={`http://localhost:8080/` + props.image}
@@ -16,7 +20,7 @@ const ItemList = (props) => {
       </div>
 
       <h1 className="text-xl font-bold right-0">${props.price}</h1>
-    </div>
+    </Link>
   );
 };
 export default ItemList;

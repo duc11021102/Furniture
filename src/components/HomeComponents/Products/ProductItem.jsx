@@ -4,6 +4,7 @@
 // md tu 768 do len
 // lg tu 1024 do len
 // xl tu 1280 do len
+import { Link } from "react-router-dom";
 const ProductItem = (props) => {
   return (
     <div className="relative lg:w-44 xl:w-60 2xl:w-72  group block font-body bg-gray-100 ease-out duration-200 hover:scale-95">
@@ -11,13 +12,14 @@ const ProductItem = (props) => {
         src={`http://localhost:8080/` + props.image}
         className="object-cover w-full lg:h-44  xl:h-60 2xl:h-72"
       ></img>
-      <button
+      <Link
+        to={`/products/${props.id}`}
         className="absolute inset-0 w-full h-full bg-gray-800 bg-opacity-60
        text-white text-2xl font-bold flex items-center justify-center opacity-0 transform scale-0 
        transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"
       >
         Add to Cart
-      </button>
+      </Link>
       <div className="px-4 py-3">
         <h2 className="text-lg font-bold">{props.title}</h2>
         <p className="text-base font-medium text-gray-500 mt-2">

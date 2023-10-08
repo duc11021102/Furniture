@@ -1,14 +1,19 @@
-import lamb from "../../assets/lamb.webp";
-import { useState, useCallback } from "react";
-const ProductItem = () => {
+import { useState, useCallback, useEffect } from "react";
+import { FiInstagram } from "react-icons/fi";
+const ProductItem = (props) => {
   const [size, setSize] = useState("L");
   const [color, setColor] = useState("brown");
   const [amount, setAmount] = useState(1);
+  // eslint-disable-next-line react/prop-types
+  const { title, description, category, price, images } = props.product;
   const defaultSize =
     "w-7 h-7 bg-orange-50 text-md rounded-md flex justify-center items-center font-medium text-black ease-out duration-200";
   const onClickSize =
     "w-7 h-7 bg-yellow-600 text-md rounded-md flex justify-center items-center font-medium text-white ease-out duration-200";
-
+  // scroll to top when render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const reduceHandler = useCallback(() => {
     if (amount === 1) {
       return;
@@ -30,19 +35,17 @@ const ProductItem = () => {
         <div className="flex justify-center">
           <img
             className="object-cover w-full max-w-xs max-h-96 rounded-md"
-            src={lamb}
+            src={`http://localhost:8080/` + images}
           ></img>
         </div>
 
         <div className="flex flex-col">
-          <h1 className="text-3xl font-bold">Asgaard sofa</h1>
-          <p className="text-base font-bold mt-1 text-neutral-300">Category</p>
-          <p className="text-xl mt-4 font-bold ">88.88$</p>
-          <p className="text-base max-w-lg mt-1 font-medium">
-            Setting the bar as one of the loudest speakers in its class, the
-            Kilburn is a compact, stout-hearted hero with a well-balanced audio
-            which boasts a clear midrange and extended highs for a sound.
+          <h1 className="text-3xl font-bold">{title}</h1>
+          <p className="text-base font-bold mt-1 text-neutral-300">
+            {category}
           </p>
+          <p className="text-xl mt-4 font-bold ">{price}$</p>
+          <p className="text-base max-w-lg mt-1 font-medium">{description}</p>
           <div className="mt-4 flex flex-col gap-2">
             <p className="text-base font-bold text-neutral-300">Size</p>
             <div className="flex gap-4">
@@ -132,15 +135,18 @@ const ProductItem = () => {
             </div>
             <div className="flex">
               <p className="w-20">Category</p>
-              <p>: Sofas</p>
+              <p>: {category}</p>
             </div>
             <div className="flex">
               <p className="w-20">Tags</p>
-              <p>: Sofa, Chair, Home, Shop</p>
+              <p>: Sofa, Kids, Chair, Home, Shop</p>
             </div>
             <div className="flex">
               <p className="w-20">Share</p>
-              <p>: SS001</p>
+              <p className="flex justify-center items-center">
+                <span>:</span>
+                <FiInstagram className="text-black ml-2 text-lg" />
+              </p>
             </div>
           </div>
         </div>

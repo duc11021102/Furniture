@@ -3,6 +3,12 @@ import RootLayout from "./page/Root";
 import DetailProduct from "./page/DetailProduct";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { loader as ProductDetailLoader } from "./page/DetailProduct";
+// const AboutRoot = lazy(() => import("./page/AboutRoot"));
+// const AboutPage = lazy(() => import("./page/AboutPage"));
+import AboutPage from "./page/AboutPage";
+import AboutRoot from "./page/AboutRoot";
+import ContactRoot from "./page/ContactRoot";
+import ContactPage from "./page/ContactPage";
 const HomePage = lazy(() => import("./page/HomePage"));
 const ProductsPage = lazy(() => import("./page/ProductsPage"));
 const ErrorPage = lazy(() => import("./page/ErrorPage"));
@@ -36,6 +42,26 @@ const router = createBrowserRouter([
             id: "product-detail",
             element: <DetailProduct />,
             loader: ProductDetailLoader,
+          },
+        ],
+      },
+      {
+        path: "/about",
+        element: <AboutRoot />,
+        children: [
+          {
+            index: true,
+            element: <AboutPage />,
+          },
+        ],
+      },
+      {
+        path: "/contact",
+        element: <ContactRoot />,
+        children: [
+          {
+            index: true,
+            element: <ContactPage />,
           },
         ],
       },

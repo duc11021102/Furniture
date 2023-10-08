@@ -8,7 +8,7 @@ const ProductItem = (props) => {
         className="object-cover w-full xl:h-60 2xl:h-72"
       ></img>
       <Link
-        to={`http://localhost:5173/products/` + props.id}
+        to={`/products/${props.id}`}
         className="absolute inset-0 w-full h-full bg-gray-800 bg-opacity-60
            text-white text-2xl font-bold flex items-center justify-center opacity-0 transform scale-0 
            transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"

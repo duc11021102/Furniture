@@ -1,7 +1,7 @@
 // import { lazy } from "react";
 import banner from "../../../assets/bg_sofa.webp";
 // const banner = lazy(() => import("../../../assets/bg_sofa.webp"));
-
+// import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className=" font-body relative ">

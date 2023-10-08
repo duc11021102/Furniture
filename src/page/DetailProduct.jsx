@@ -4,17 +4,19 @@ import ProductItem from "../components/ProductDetailComponents/ProductItem";
 import { json, defer, Await } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
+import Description from "../components/ProductDetailComponents/Description";
 const DetailProduct = () => {
   const { product } = useLoaderData();
   return (
     <>
       <Suspense fallback={<LoadingPage />}>
-        <Directional />
+        <Directional product={product} />
         <Await resolve={product}>
           {(loaderProduct) => (
             <ProductItem product={loaderProduct}></ProductItem>
           )}
         </Await>
+        <Description />
       </Suspense>
     </>
   );
@@ -38,7 +40,7 @@ async function loadProduct(id) {
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export async function loader({ request, params }) {
+export async function loader({ params }) {
   const id = params.id;
   return defer({
     product: await loadProduct(id),
