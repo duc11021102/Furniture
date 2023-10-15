@@ -33,7 +33,7 @@ const MainNavigation = () => {
       <div className=" flex gap-10">
         <NavLink
           className="hover:text-gray-400 ease-out duration-200"
-          to="/profile"
+          to="/auth?mode=login"
         >
           <FiUser className="text-2xl" />
         </NavLink>

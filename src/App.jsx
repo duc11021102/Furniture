@@ -3,15 +3,15 @@ import RootLayout from "./page/Root";
 import DetailProduct from "./page/DetailProduct";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { loader as ProductDetailLoader } from "./page/DetailProduct";
-// const AboutRoot = lazy(() => import("./page/AboutRoot"));
-// const AboutPage = lazy(() => import("./page/AboutPage"));
 import AboutPage from "./page/AboutPage";
 import AboutRoot from "./page/AboutRoot";
 import ContactRoot from "./page/ContactRoot";
 import ContactPage from "./page/ContactPage";
+import AuthenticationPage from // action as authAction,
+"./page/AuthenticationPage";
+import ErrorPage from "./page/ErrorPage";
 const HomePage = lazy(() => import("./page/HomePage"));
 const ProductsPage = lazy(() => import("./page/ProductsPage"));
-const ErrorPage = lazy(() => import("./page/ErrorPage"));
 const ProductRoot = lazy(() => import("./page/ProductRoot"));
 
 const router = createBrowserRouter([
@@ -64,6 +64,11 @@ const router = createBrowserRouter([
             element: <ContactPage />,
           },
         ],
+      },
+      {
+        path: "/auth",
+        element: <AuthenticationPage />,
+        // action: authAction,
       },
     ],
   },
