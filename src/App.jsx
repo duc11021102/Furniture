@@ -7,13 +7,13 @@ import AboutPage from "./page/AboutPage";
 import AboutRoot from "./page/AboutRoot";
 import ContactRoot from "./page/ContactRoot";
 import ContactPage from "./page/ContactPage";
-import AuthenticationPage from // action as authAction,
-"./page/AuthenticationPage";
+import AuthenticationPage from "./page/AuthenticationPage"; // action as authAction,
 import ErrorPage from "./page/ErrorPage";
+import CartPage from "./page/CartPage";
 const HomePage = lazy(() => import("./page/HomePage"));
 const ProductsPage = lazy(() => import("./page/ProductsPage"));
 const ProductRoot = lazy(() => import("./page/ProductRoot"));
-
+const CartRoot = lazy(() => import("./page/CartRoot"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -69,6 +69,16 @@ const router = createBrowserRouter([
         path: "/auth",
         element: <AuthenticationPage />,
         // action: authAction,
+      },
+      {
+        path: "/cart",
+        element: <CartRoot />,
+        children: [
+          {
+            index: true,
+            element: <CartPage />,
+          },
+        ],
       },
     ],
   },

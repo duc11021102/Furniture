@@ -1,15 +1,13 @@
 import { useState, useCallback, useEffect } from "react";
 import { FiInstagram } from "react-icons/fi";
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
 const ProductItem = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { id, title, description, category, price, images } = props.product;
   const [size, setSize] = useState("L");
   const [color, setColor] = useState("brown");
   const [amount, setAmount] = useState(1);
-  // eslint-disable-next-line react/prop-types
-  const { title, description, category, price, images } = props.product;
-  const defaultSize =
-    "w-7 h-7 bg-orange-50 text-md rounded-md flex justify-center items-center font-medium text-black ease-out duration-200";
-  const onClickSize =
-    "w-7 h-7 bg-yellow-600 text-md rounded-md flex justify-center items-center font-medium text-white ease-out duration-200";
   // scroll to top when render
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,7 +26,24 @@ const ProductItem = (props) => {
       setAmount(amount + 1);
     }
   }, [amount]);
+  const defaultSize =
+    "w-7 h-7 bg-orange-50 text-md rounded-md flex justify-center items-center font-medium text-black ease-out duration-200";
+  const onClickSize =
+    "w-7 h-7 bg-yellow-600 text-md rounded-md flex justify-center items-center font-medium text-white ease-out duration-200";
 
+  const cartCtx = useContext(CartContext);
+  const addToCartHandler = (e) => {
+    e.preventDefault();
+    cartCtx.addItem({
+      id: id,
+      title: title,
+      category: category,
+      price: price,
+      images: images,
+      color: color,
+      amount: +amount,
+    });
+  };
   return (
     <section className="font-body w-full px-20 py-6">
       <div className="w-full grid grid-cols-2 gap-12 ">
@@ -124,6 +139,7 @@ const ProductItem = (props) => {
             <button
               className="w-40 h-16 font-semibold flex justify-center items-center border-2 border-gray-500 
             rounded-xl ease-out duration-100 hover:bg-gray-200 "
+              onClick={addToCartHandler}
             >
               Add To Cart
             </button>

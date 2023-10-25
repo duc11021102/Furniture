@@ -2,8 +2,9 @@
 import { lazy, useState, useEffect, useCallback } from "react";
 import { defer, json, Await, useLoaderData } from "react-router-dom";
 import { Suspense } from "react";
+import Banner from "../components/Banner";
 const LoadingPage = lazy(() => import("./LoadingPage"));
-const Banner = lazy(() => import("../components/ProductsComponents/Banner"));
+// const Banner = lazy(() => import("../components/ProductsComponents/Banner"));
 const FilterItems = lazy(() =>
   import("../components/ProductsComponents/FilterItems")
 );
@@ -13,8 +14,7 @@ const ProductsGrid = lazy(() =>
 const ProductsList = lazy(() =>
   import("../components/ProductsComponents/ProductsList")
 );
-const Policy = lazy(() => import("../components/ProductsComponents/Policy"));
-
+const Policy = lazy(() => import("../components/Policy"));
 const ProductPage = () => {
   const { products } = useLoaderData();
   const [layout, setLayout] = useState("grid");
@@ -32,7 +32,7 @@ const ProductPage = () => {
   return (
     <section className="w-full">
       <Suspense fallback={<LoadingPage />}>
-        <Banner />
+        <Banner title="Shop" />
         <FilterItems swapLayout={swapLayoutHandler} />
         <Await resolve={products}>
           {layout === "grid"

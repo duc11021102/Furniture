@@ -5,7 +5,6 @@ import banner from "../../../assets/bg_sofa.webp";
 const Banner = () => {
   return (
     <div className=" font-body relative ">
-      {/* <div className="absolute right-10"> */}
       <div className="absolute right-10 2xl:top-40 lg:top-20">
         <div className="px-10 py-8 bg-orange-100">
           <p className="text-lg font-bold">New Arrival</p>
@@ -21,7 +20,6 @@ const Banner = () => {
           </button>
         </div>
       </div>
-
       <img className="object-cover w-full " src={banner}></img>
     </div>
   );

@@ -1,9 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 import { json, useSearchParams, useNavigate } from "react-router-dom";
 import AuthForm from "../components/AuthenticationComponents/AuthForm";
-import Policy from "../components/ProductsComponents/Policy";
 import { Suspense } from "react";
 import LoadingPage from "./LoadingPage";
+import Policy from "../components/Policy";
 
 const AuthenticationPage = () => {
   const [searchParams] = useSearchParams(); // Hook useSearchParams được sử dụng để đọc và sửa đổi chuỗi truy vấn trong URL cho vị trí hiện tại
@@ -35,7 +35,7 @@ const AuthenticationPage = () => {
     // luu thong tin dang nhap trong localstorage
     localStorage.setItem("token", token);
     const expiration = new Date();
-    expiration.setHours(expiration.getHours() + 1);
+    expiration.setHours(expiration.getHours() + 1); // token het han trong 1h
     localStorage.setItem("expiration", expiration.toISOString());
     console.log(token);
     navigate("/");
@@ -51,10 +51,10 @@ export default AuthenticationPage;
 
 // export async function action({ request }) {
 //   const searchParams = new URL(request.url).searchParams;
-//   // new URL(request.url) cho phép truy cập thông tin từ URL, chẳng hạn như phần truy vấn, phần định danh, và các phần khác của URL.
-//   // .searchParams cho phép truy cập vào phần truy vấn của URL(query parameters)
-//   // http://127.0.0.1:5173/auth?mode=signin
-//   // theo url trên thì  searchParams.get('mode') sẽ trả về sigin
+// new URL(request.url) cho phép truy cập thông tin từ URL, chẳng hạn như phần truy vấn, phần định danh, và các phần khác của URL.
+// .searchParams cho phép truy cập vào phần truy vấn của URL(query parameters)
+// http://127.0.0.1:5173/auth?mode=signin
+// theo url trên thì  searchParams.get('mode') sẽ trả về sigin
 //   const mode = searchParams.get("mode") || "login"; // nếu tham số mode k tồn tại  , hoặc nếu trả về giá  trị null thì sẽ sử dụng giá trị mặc đinh là "login"
 //   if (mode !== "login " && mode !== "signin") {
 //     throw json({ message: "Unsupported mode." }, { status: 422 });

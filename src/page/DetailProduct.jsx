@@ -5,6 +5,7 @@ import { json, defer, Await } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 import Description from "../components/ProductDetailComponents/Description";
+import Policy from "../components/Policy";
 const DetailProduct = () => {
   const { product } = useLoaderData();
   return (
@@ -17,6 +18,7 @@ const DetailProduct = () => {
           )}
         </Await>
         <Description />
+        <Policy />
       </Suspense>
     </>
   );

@@ -1,14 +1,14 @@
-import Banner from "../components/ContactComponents/Banner";
 import Contact from "../components/ContactComponents/Contact";
 import Tittle from "../components/ContactComponents/Tittle";
 import LoadingPage from "./LoadingPage";
-import Policy from "../components/ProductsComponents/Policy";
 import { Suspense } from "react";
+import Banner from "../components/Banner";
+import Policy from "../components/Policy";
 const ContactPage = () => {
   return (
     <section className="w-full">
       <Suspense fallback={<LoadingPage />}>
-        <Banner />
+        <Banner title="Contact" />
         <Tittle />
         <Contact />
         <Policy />
