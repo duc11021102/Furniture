@@ -2,6 +2,8 @@ import { useState, useCallback, useEffect } from "react";
 import { FiInstagram } from "react-icons/fi";
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
+import { toast } from "react-toastify";
+
 const ProductItem = (props) => {
   // eslint-disable-next-line react/prop-types
   const { id, title, description, category, price, images } = props.product;
@@ -42,6 +44,16 @@ const ProductItem = (props) => {
       images: images,
       color: color,
       amount: +amount,
+    });
+    toast("🦄 Item added to cart!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
     });
   };
   return (
