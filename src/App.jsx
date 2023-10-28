@@ -10,10 +10,11 @@ import ContactPage from "./page/ContactPage";
 import AuthenticationPage from "./page/AuthenticationPage"; // action as authAction,
 import ErrorPage from "./page/ErrorPage";
 import CartPage from "./page/CartPage";
+import CartRoot from "./page/CartRoot";
+import CheckoutPage from "./page/CheckoutPage";
 const HomePage = lazy(() => import("./page/HomePage"));
 const ProductsPage = lazy(() => import("./page/ProductsPage"));
 const ProductRoot = lazy(() => import("./page/ProductRoot"));
-const CartRoot = lazy(() => import("./page/CartRoot"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <CartPage />,
+          },
+          {
+            path: "checkout",
+            element: <CheckoutPage />,
           },
         ],
       },

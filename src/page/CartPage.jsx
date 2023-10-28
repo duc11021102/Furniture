@@ -11,14 +11,14 @@ import CartContext from "../store/cart-context";
 const CartPage = () => {
   const cartCtx = useContext(CartContext);
   return (
-    <section className="w-full">
-      <Suspense fallback={<LoadingPage />}>
+    <Suspense fallback={<LoadingPage />}>
+      <section className="w-full">
         {cartCtx.items.length != 0 && <Banner title="Cart" />}
         {cartCtx.items.length != 0 && <CartInfo />}
         {cartCtx.items.length === 0 && <CartEmpty />}
         <Policy />
-      </Suspense>
-    </section>
+      </section>
+    </Suspense>
   );
 };
 export default CartPage;

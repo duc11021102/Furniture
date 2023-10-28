@@ -15,10 +15,10 @@ const ProductsList = lazy(() =>
   import("../components/ProductsComponents/ProductsList")
 );
 const Policy = lazy(() => import("../components/Policy"));
+
 const ProductPage = () => {
   const { products } = useLoaderData();
   const [layout, setLayout] = useState("grid");
-
   const swapLayoutHandler = useCallback((layout) => {
     console.log(layout);
     setLayout(layout);

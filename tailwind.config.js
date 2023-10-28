@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-
 export default {
   content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,6 +9,10 @@ export default {
     extend: {
       maxWidth: {
         '1/2': '50%',
+      },
+      backgroundImage: {
+        'home-banner': "url('./src/assets/bg_sofa.webp')",
+        'banner': "url('./src/assets/bannerproducts.webp')"
       }
     },
     fontFamily: {

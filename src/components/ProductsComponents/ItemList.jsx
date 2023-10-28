@@ -19,7 +19,7 @@ const ItemList = (props) => {
         </div>
       </div>
 
-      <h1 className="text-xl font-bold right-0">${props.price}</h1>
+      <h1 className="text-xl font-bold right-0">{props.price}$</h1>
     </Link>
   );
 };

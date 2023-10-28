@@ -20,7 +20,7 @@ const ProductItem = (props) => {
         <p className="text-base font-medium text-gray-500 mt-2">
           {props.category}
         </p>
-        <h2 className="mt-2 text-lg font-bold">{props.price}</h2>
+        <h2 className="mt-2 text-lg font-bold">{props.price}$</h2>
       </div>
     </div>
   );

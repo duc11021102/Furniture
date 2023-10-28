@@ -1,8 +1,26 @@
 /* eslint-disable react/prop-types */
-
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
 import { FiTrash2 } from "react-icons/fi";
+import { toast } from "react-toastify";
+import { useCallback } from "react";
 const CartItem = (props) => {
-  const { images, title, amount, category, price } = props.item;
+  const { id, images, title, amount, category, price } = props.item;
+  const cartCtx = useContext(CartContext);
+  const removeHandler = useCallback(() => {
+    cartCtx.deleteItem(id);
+    toast("🦄 Item removed from cart!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }, [cartCtx, id]);
+
   return (
     <li className="font-body flex my-14 border-b-2 pb-4 border-orange-100">
       <div>
@@ -21,7 +39,7 @@ const CartItem = (props) => {
           {amount}
         </div>
         <FiTrash2
-          // onClick={removeHandler}
+          onClick={removeHandler}
           className="text-yellow-600 text-xl hover:text-yellow-700"
         />
       </div>

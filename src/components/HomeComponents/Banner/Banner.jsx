@@ -1,11 +1,14 @@
 // import { lazy } from "react";
-import banner from "../../../assets/bg_sofa.webp";
+// import banner from "../../../assets/bg_sofa.webp";
 // const banner = lazy(() => import("../../../assets/bg_sofa.webp"));
 // import { Link } from "react-router-dom";
 const Banner = () => {
   return (
-    <div className=" font-body relative ">
-      <div className="absolute right-10 2xl:top-40 lg:top-20">
+    <div
+      className=" font-body relative bg-home-banner h-96
+     object-cover bg-cover bg-center flex flex-col gap-4 justify-center items-center "
+    >
+      {/* <div className="absolute right-10 2xl:top-40 lg:top-20">
         <div className="px-10 py-8 bg-orange-100">
           <p className="text-lg font-bold">New Arrival</p>
           <h1 className="text-5xl max-w-md font-extrabold text-yellow-600 mt-8">
@@ -19,8 +22,15 @@ const Banner = () => {
             Buy Now
           </button>
         </div>
-      </div>
-      <img className="object-cover w-full " src={banner}></img>
+      </div> */}
+      {/* <img className="object-cover w-full h-96 " src={banner}></img>   */}
+      <h1 className="text-5xl  font-extrabold text-white ">
+        <span className="text-yellow-500">FURNITURE</span> COLLECTION
+      </h1>
+
+      <p className="text-lg font-light text-white">
+        WE ARE IN THE INDUSTRY IN 1890
+      </p>
     </div>
   );
 };

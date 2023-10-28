@@ -34,28 +34,31 @@ const ProductItem = (props) => {
     "w-7 h-7 bg-yellow-600 text-md rounded-md flex justify-center items-center font-medium text-white ease-out duration-200";
 
   const cartCtx = useContext(CartContext);
-  const addToCartHandler = (e) => {
-    e.preventDefault();
-    cartCtx.addItem({
-      id: id,
-      title: title,
-      category: category,
-      price: price,
-      images: images,
-      color: color,
-      amount: +amount,
-    });
-    toast("🦄 Item added to cart!", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
+  const addToCartHandler = useCallback(
+    (e) => {
+      e.preventDefault();
+      cartCtx.addItem({
+        id: id,
+        title: title,
+        category: category,
+        price: price,
+        images: images,
+        color: color,
+        amount: +amount,
+      });
+      toast("🦄 Item added to cart!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    },
+    [amount, id, title, category, price, images, color, cartCtx]
+  );
   return (
     <section className="font-body w-full px-20 py-6">
       <div className="w-full grid grid-cols-2 gap-12 ">

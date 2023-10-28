@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
-
+import { Link } from "react-router-dom";
 const FormBid = () => {
   const cartCtx = useContext(CartContext);
   const priceFloat = parseFloat(cartCtx.amountPrice);
@@ -25,12 +25,13 @@ const FormBid = () => {
           <span className="font-bold">Order Total</span>
           <span className="font-bold">${amount.toFixed(2)}</span>
         </div>
-        <button
-          className=" max-w-44 text-xl rounded-lg py-3 mx-10 mt-10 bg-yellow-600 
+        <Link
+          to="checkout"
+          className=" max-w-44 text-xl text-center rounded-lg py-3 mx-10 mt-10 bg-yellow-600 
          text-white font-semibold hover:bg-yellow-700 ease-out duration-200"
         >
           Check Out
-        </button>
+        </Link>
       </div>
     </div>
   );
