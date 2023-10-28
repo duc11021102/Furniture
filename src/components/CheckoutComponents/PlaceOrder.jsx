@@ -1,5 +1,23 @@
 import { Link } from "react-router-dom";
+import CartContext from "../../store/cart-context";
+import { useContext, useState } from "react";
 const PlaceOrder = () => {
+  const cartCtx = useContext(CartContext);
+  const amountItems = cartCtx.items.length;
+  const floatPrice = cartCtx.amountPrice;
+  const price = floatPrice.toFixed(2);
+  const totalPrice = +price + 18 + 5;
+
+  const [payMethod, setPayMethod] = useState("cash");
+
+  const setBankMethodHandler = () => {
+    setPayMethod("bank");
+  };
+
+  const setCashMethodHandler = () => {
+    setPayMethod("cash");
+  };
+
   return (
     <div className="font-body w-1/2 flex flex-col gap-5">
       <div className="flex flex-col gap-4 border-b-neutral-300 border-b-2 pb-8">
@@ -8,12 +26,16 @@ const PlaceOrder = () => {
           <span className="text-2xl font-semibold">Subtotal</span>
         </p>
         <p className="flex flex-row justify-between ">
-          <span className="text-lg font-medium text-neutral-500">X3</span>
-          <span className="text-lg font-medium">3000$</span>
+          <span className="text-lg font-medium text-neutral-500">
+            X{amountItems}
+          </span>
+          <span className="text-lg font-medium">{price}$</span>
         </p>
         <p className="flex flex-row justify-between ">
           <span className="text-xl font-medium">Total</span>
-          <span className="text-2xl font-bold text-yellow-600">3000$</span>
+          <span className="text-2xl font-bold text-yellow-600">
+            {totalPrice.toFixed(2)}$
+          </span>
         </p>
       </div>
 
@@ -26,11 +48,21 @@ const PlaceOrder = () => {
         </p>
         <div className="flex flex-col gap-1">
           <p className="flex flex-row items-center gap-3 text-neutral-600">
-            <input type="radio" className="rounded-full w-5 h-5"></input>
+            <input
+              onClick={setBankMethodHandler}
+              checked={payMethod === "bank"}
+              type="radio"
+              className="rounded-full w-5 h-5"
+            ></input>
             <span className="text-lg font-semibold">Direct Bank Transfer</span>
           </p>
           <p className="flex flex-row items-center gap-3 text-neutral-600">
-            <input type="radio" className="rounded-full w-5 h-5"></input>
+            <input
+              onClick={setCashMethodHandler}
+              checked={payMethod === "cash"}
+              type="radio"
+              className="rounded-full w-5 h-5"
+            ></input>
             <span className="text-lg font-semibold">Cash On Delivery</span>
           </p>
         </div>
