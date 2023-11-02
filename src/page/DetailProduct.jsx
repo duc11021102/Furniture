@@ -26,7 +26,9 @@ const DetailProduct = () => {
 export default DetailProduct;
 
 async function loadProduct(id) {
-  const response = await fetch(`http://localhost:8080/products/` + id);
+  const response = await fetch(
+    `https://be-furrniture.onrender.com/api/products/` + id
+  );
   if (!response.ok) {
     throw json(
       { message: "Could not fetch product." },
@@ -36,7 +38,7 @@ async function loadProduct(id) {
     );
   } else {
     const responseData = await response.json();
-    const product = responseData.product;
+    const product = await responseData.product;
     return product;
   }
 }

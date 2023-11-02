@@ -25,7 +25,7 @@ const CartItem = (props) => {
     <li className="font-body flex my-14 border-b-2 pb-4 border-orange-100">
       <div>
         <img
-          src={`http://localhost:8080/` + images}
+          src={`https://be-furrniture.onrender.com/` + images}
           className="object-cover w-32 h-32 rounded-lg"
         ></img>
       </div>

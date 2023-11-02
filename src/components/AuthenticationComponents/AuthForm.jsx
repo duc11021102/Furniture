@@ -15,14 +15,16 @@ const AuthForm = (props) => {
   // useActionData() dùng cho validation errors
   // const navigation = useNavigation();
   /**send data to parent component */
-  const submitHandler = useCallback(() => {
-    if (email === "" || password === "") {
-      return;
-    }
-    props.authData(email, password);
-    setEmail("");
-    setPassword("");
-  }, [email, password, props]);
+  const submitHandler = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (email === "" || password === "") {
+        return;
+      }
+      props.authData(email, password);
+    },
+    [email, password, props]
+  );
   return (
     <div className="font-body w-full flex justify-center py-10">
       <Form method="post" className="w-96  px-8 py-6 rounded-md shadow-2xl">

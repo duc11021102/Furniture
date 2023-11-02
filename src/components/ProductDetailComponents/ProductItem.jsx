@@ -65,7 +65,7 @@ const ProductItem = (props) => {
         <div className="flex justify-center">
           <img
             className="object-cover w-full max-w-xs max-h-96 rounded-md"
-            src={`http://localhost:8080/` + images}
+            src={`https://be-furrniture.onrender.com/${images}`}
           ></img>
         </div>
 

@@ -16,13 +16,17 @@ const AuthenticationPage = () => {
       email: email,
       password: password,
     };
-    const response = await fetch("http://localhost:8080/" + mode, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(authData), // JSON.stringify dùng để chuyển đối tượng javascript sang thành 1 chuỗi json
-    });
+    const response = await fetch(
+      "https://be-furrniture.onrender.com/api/auth/" + mode,
+      // "http://localhost:8080/api/auth/" + mode,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(authData), // JSON.stringify dùng để chuyển đối tượng javascript sang thành 1 chuỗi json
+      }
+    );
     if (response.status === 422 || response.status === 401) {
       return response;
     }
@@ -30,7 +34,7 @@ const AuthenticationPage = () => {
       throw json({ message: "Could not authenticate user." }, { status: 500 });
     }
     const resData = await response.json();
-    const token = resData.token;
+    const token = await resData.token;
 
     // luu thong tin dang nhap trong localstorage
     localStorage.setItem("token", token);
@@ -38,7 +42,9 @@ const AuthenticationPage = () => {
     expiration.setHours(expiration.getHours() + 1); // token het han trong 1h
     localStorage.setItem("expiration", expiration.toISOString());
     console.log(token);
-    navigate("/");
+    if (token) {
+      navigate("/");
+    }
   }
   return (
     <Suspense fallback={<LoadingPage />}>

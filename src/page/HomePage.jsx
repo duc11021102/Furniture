@@ -38,7 +38,9 @@ const HomePage = () => {
 export default HomePage;
 
 async function loadProduct() {
-  const response = await fetch("http://localhost:8080/products/");
+  const response = await fetch(
+    "https://be-furrniture.onrender.com/api/products"
+  );
   if (!response.ok) {
     throw json(
       { message: "Could not fetch products." },
