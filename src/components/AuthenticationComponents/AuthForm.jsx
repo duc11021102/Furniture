@@ -4,17 +4,20 @@ import { Form, Link, useSearchParams } from "react-router-dom";
 import InputPassword from "./InputPassword";
 import InputText from "./InputText";
 import AuthButton from "./AuthButton";
+import LoadingIndicator from "../UI/LoadingIndicator";
 const AuthForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [searchParams] = useSearchParams(); // Hook useSearchParams được sử dụng để đọc và sửa đổi chuỗi truy vấn trong URL cho vị trí hiện tại
   const isLogin = searchParams.get("mode") === "login";
+  const isLoading = props.isLoading;
   // to={"/abc"} thì sẽ link đến  localhost:5173/abc
   // to={"abc"} thì sẽ link đến  localhost:5173/url hiện tại/abc
   // const data = useActionData();
   // useActionData() dùng cho validation errors
   // const navigation = useNavigation();
   /**send data to parent component */
+
   const submitHandler = useCallback(
     (e) => {
       e.preventDefault();
@@ -60,14 +63,18 @@ const AuthForm = (props) => {
             Forgot password?
           </p>
         )}
-        <AuthButton
-          type="submit"
-          onClick={submitHandler}
-          background={"bg-yellow-600"}
-          text={"text-white"}
-          backgroundHover={"bg-yellow-700"}
-          title={isLogin ? "Login" : "Signin"}
-        ></AuthButton>
+        {isLoading ? (
+          <LoadingIndicator />
+        ) : (
+          <AuthButton
+            type="submit"
+            onClick={submitHandler}
+            background={"bg-yellow-600"}
+            text={"text-white"}
+            backgroundHover={"bg-yellow-700"}
+            title={isLogin ? "Login" : "Sign up"}
+          ></AuthButton>
+        )}
         <p className="text-center font-medium mt-2">
           <span className="text-sm  text-black">
             {isLogin ? "Don’t have an account?" : "Already have an account?"}

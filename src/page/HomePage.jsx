@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { json, defer, useLoaderData, Await } from "react-router-dom";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 const BrowseTheRange = lazy(() =>
   import("../components/HomeComponents/Browse/BrowseTheRange")
 );
@@ -20,7 +20,13 @@ const HomePage = () => {
   // useLoaderData trả về dữ liệu được tải bởi loader của route hiện tại
   // defer cho phép bạn trì hoãn việc tải dữ liệu hoặc tính toán tốn thời gian cho đến khi thành phần được render
   // defer giúp cải thiện hiệu suất và trải nghiệm người dùng
+
+  // scroll to top when render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { products } = useLoaderData();
+
   return (
     <section className="w-full">
       <Suspense fallback={<LoadingPage />}>

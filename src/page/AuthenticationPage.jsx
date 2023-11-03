@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { json, useSearchParams, useNavigate } from "react-router-dom";
 import AuthForm from "../components/AuthenticationComponents/AuthForm";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import LoadingPage from "./LoadingPage";
 import Policy from "../components/Policy";
 
@@ -9,6 +9,7 @@ const AuthenticationPage = () => {
   const [searchParams] = useSearchParams(); // Hook useSearchParams được sử dụng để đọc và sửa đổi chuỗi truy vấn trong URL cho vị trí hiện tại
   const mode = searchParams.get("mode"); // check xem đang là trang login hay signin
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   // fecth
   async function handlerAuthData(email, password) {
@@ -16,6 +17,7 @@ const AuthenticationPage = () => {
       email: email,
       password: password,
     };
+    setIsLoading(true);
     const response = await fetch(
       "https://be-furrniture.onrender.com/api/auth/" + mode,
       // "http://localhost:8080/api/auth/" + mode,
@@ -42,13 +44,14 @@ const AuthenticationPage = () => {
     expiration.setHours(expiration.getHours() + 1); // token het han trong 1h
     localStorage.setItem("expiration", expiration.toISOString());
     console.log(token);
-    if (token) {
+    if (token && expiration) {
+      setIsLoading(false);
       navigate("/");
     }
   }
   return (
     <Suspense fallback={<LoadingPage />}>
-      <AuthForm authData={handlerAuthData} />
+      <AuthForm authData={handlerAuthData} isLoading={isLoading} />
       <Policy />
     </Suspense>
   );

@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CartContext from "../../store/cart-context";
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+
 const PlaceOrder = () => {
   const cartCtx = useContext(CartContext);
   const amountItems = cartCtx.items.length;
@@ -16,6 +18,22 @@ const PlaceOrder = () => {
 
   const setCashMethodHandler = () => {
     setPayMethod("cash");
+  };
+
+  const navigate = useNavigate();
+  const placeOrderHandler = () => {
+    navigate("/");
+    toast("🦄 Order Successfully!!!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    cartCtx.clearCart();
   };
 
   return (
@@ -74,13 +92,13 @@ const PlaceOrder = () => {
         </p>
       </div>
 
-      <Link
-        to="/"
+      <button
+        onClick={placeOrderHandler}
         className="text-xl text-center rounded-lg py-3 mx-44 mt-5
          text-white font-semibold  ease-out duration-200 bg-yellow-600 hover:bg-yellow-700"
       >
         Place Order
-      </Link>
+      </button>
     </div>
   );
 };
