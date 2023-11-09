@@ -4,11 +4,11 @@ const ItemList = (props) => {
   return (
     <Link
       to={`/products/${props.id}`}
-      className="w-full flex justify-between shadow-lg rounded-lg py-5 px-7 hover:shadow-2xl duration-200"
+      className="w-full flex justify-between bg-neutral-100 shadow-lg rounded-lg py-5 px-7 hover:shadow-2xl duration-200"
     >
       <div className="flex gap-20 ">
         <img
-          src={`http://localhost:8080/` + props.image}
+          src={`https://be-furrniture.onrender.com/` + props.image}
           className="w-36 h-36 object-cover rounded-lg"
         ></img>
         <div>

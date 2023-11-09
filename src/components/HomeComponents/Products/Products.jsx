@@ -10,7 +10,7 @@ const Products = (props) => {
     navigate("/products");
   }, [navigate]);
   return (
-    <section className="px-8 lg:py-10  py-14 font-body ">
+    <section className="lg:py-10 py-14 font-body ">
       <div className="">
         <h1 className="text-4xl font-bold text-center">Our Products</h1>
         <ProductsList products={ourProducts} />

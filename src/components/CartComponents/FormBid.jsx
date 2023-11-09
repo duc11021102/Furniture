@@ -8,7 +8,7 @@ const FormBid = () => {
 
   return (
     <div className="col-span-4">
-      <div className=" px-10 py-8 font-body flex flex-col border-2 border-gray-300  text-black  ">
+      <div className=" px-5 xl:px-10 py-8 font-body flex flex-col border-2 border-gray-300  text-black">
         <div className="text-xm w-full flex justify-between mb-3 border-b-2 border-b-black pb-1">
           <span className="font-medium">Subtotal</span>
           <span className="font-medium">${priceFloat.toFixed(2)}</span>
@@ -27,7 +27,7 @@ const FormBid = () => {
         </div>
         <Link
           to="checkout"
-          className=" max-w-44 text-xl text-center rounded-lg py-3 mx-10 mt-10 bg-yellow-600 
+          className=" text-xl text-center rounded-lg py-3 xl:mx-10 mt-10 bg-yellow-600 
          text-white font-semibold hover:bg-yellow-700 ease-out duration-200"
         >
           Check Out

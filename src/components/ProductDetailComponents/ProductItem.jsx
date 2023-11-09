@@ -60,8 +60,8 @@ const ProductItem = (props) => {
     [amount, id, title, category, price, images, color, cartCtx]
   );
   return (
-    <section className="font-body w-full px-20 py-6">
-      <div className="w-full grid grid-cols-2 gap-12 ">
+    <section className="font-body w-full px-10 lg:px-20 py-6">
+      <div className="w-full grid grid-cols-2 gap-8 md:gap-12 ">
         <div className="flex justify-center">
           <img
             className="object-cover w-full max-w-xs max-h-96 rounded-md"
@@ -159,7 +159,7 @@ const ProductItem = (props) => {
               Add To Cart
             </button>
           </div>
-          <div className="flex flex-col gap-2 border-t-2 border-neutral-200 mt-12 pt-10 text-neutral-400 text-base font-medium ">
+          <div className="flex flex-col gap-2 border-t-2 border-neutral-200 mt-12 pt-10 text-neutral-400 text-xs md:text-base font-medium ">
             <div className="flex">
               <p className="w-20">SKU</p>
               <p>: SS001</p>

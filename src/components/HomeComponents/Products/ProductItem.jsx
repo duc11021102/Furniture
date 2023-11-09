@@ -7,10 +7,10 @@
 import { Link } from "react-router-dom";
 const ProductItem = (props) => {
   return (
-    <div className="relative lg:w-44 xl:w-60 2xl:w-72  group block font-body bg-gray-100 ease-out duration-200 hover:scale-95">
+    <div className="relative block font-body bg-gray-100 ease-out duration-200 hover:scale-95">
       <img
         src={`https://be-furrniture.onrender.com/` + props.image}
-        className="object-cover w-full lg:h-44  xl:h-60 2xl:h-72"
+        className="object-cover w-full h-48 xl:h-60 2xl:h-72"
       ></img>
       <Link
         to={`/products/${props.id}`}

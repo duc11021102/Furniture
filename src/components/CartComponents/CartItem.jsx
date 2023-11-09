@@ -29,11 +29,13 @@ const CartItem = (props) => {
           className="object-cover w-32 h-32 rounded-lg"
         ></img>
       </div>
-      <div className="flex flex-col gap-1 ml-16 w-48">
+
+      <div className="flex flex-col gap-1 ml-10 md:ml-16 w-40 md:w-48">
         <p className="text-black text-lg font-bold">{title}</p>
         <p className="text-neutral-300 text-base font-semibold">{category}</p>
       </div>
-      <div className="ml-20 flex flex-col gap-2 items-center">
+
+      <div className="ml-6 md:ml-20 flex flex-col gap-2 items-center">
         <p className="text-base font-medium">Amount</p>
         <div className="font-bold text-center border-2 w-9 h-8 rounded-md">
           {amount}
@@ -43,6 +45,7 @@ const CartItem = (props) => {
           className="text-yellow-600 text-xl hover:text-yellow-700"
         />
       </div>
+
       <div className="ml-auto">
         <h1 className="text-lg font-bold">${price}</h1>
       </div>

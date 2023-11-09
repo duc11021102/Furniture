@@ -8,9 +8,9 @@ const MainFooter = lazy(() =>
 );
 const Root = () => {
   return (
-    <div className="">
+    <div className="w-full">
       <MainNavigation />
-      <main>
+      <main className="w-full">
         <Outlet />
       </main>
       <MainFooter />

@@ -37,7 +37,7 @@ const PlaceOrder = () => {
   };
 
   return (
-    <div className="font-body w-1/2 flex flex-col gap-5">
+    <div className="font-body lg:w-1/2 flex flex-col gap-5">
       <div className="flex flex-col gap-4 border-b-neutral-300 border-b-2 pb-8">
         <p className="flex flex-row justify-between ">
           <span className="text-2xl font-semibold">Product</span>
@@ -94,7 +94,7 @@ const PlaceOrder = () => {
 
       <button
         onClick={placeOrderHandler}
-        className="text-xl text-center rounded-lg py-3 mx-44 mt-5
+        className="text-xl text-center rounded-lg py-3 xl:mx-44 mt-5
          text-white font-semibold  ease-out duration-200 bg-yellow-600 hover:bg-yellow-700"
       >
         Place Order

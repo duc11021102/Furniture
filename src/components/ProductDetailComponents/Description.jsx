@@ -1,6 +1,6 @@
 const Description = () => {
   return (
-    <section className="font-body py-10 px-20 border-t-2 border-neutral-200">
+    <section className="font-body py-10 px-10 lg:px-20 border-t-2 border-neutral-200">
       <div className="flex flex-col gap-10">
         <div className="flex justify-center text-xl  gap-10 ">
           <h1 className="font-semibold">Description</h1>

@@ -6,7 +6,7 @@ const ProductItem = lazy(() => import("./ProductItem"));
 
 const ProductsList = (props) => {
   return (
-    <div className="grid grid-cols-4 gap-8  px-28 mt-10 ">
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-10 xl:px-20 2xl:px-28 mt-10 ">
       {props.products.map((prod) => (
         <ProductItem
           key={prod.id}
