@@ -4,7 +4,7 @@ const Share = () => {
       <p className="text-base text-center font-medium text-gray-500 mt-4">
         Share your setup with
       </p>
-      <h1 className="text-4xl font-bold ">#FuniroFuniture</h1>
+      <h1 className="text-xl sm:text-4xl font-bold ">#FuniroFuniture</h1>
     </section>
   );
 };

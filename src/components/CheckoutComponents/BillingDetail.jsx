@@ -2,8 +2,8 @@ import BillingForm from "./BillingForm";
 const BillingDetail = () => {
   return (
     <div className="flex flex-col gap-6 max-w-96 font-body">
-      <h1 className="text-4xl font-bold">Billing Details</h1>
-      <div className="flex flex-row gap-4 max-w-96">
+      <h1 className="text-3xl sm:text-4xl font-bold">Billing Details</h1>
+      <div className="flex flex-col sm:flex-row gap-4 max-w-96">
         <BillingForm title="First Name" placeholder="" />
         <BillingForm title="Last Name" placeholder="" />
       </div>

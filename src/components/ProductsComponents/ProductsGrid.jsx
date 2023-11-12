@@ -5,7 +5,10 @@ const ItemGrid = lazy(() => import("./ItemGrid"));
 
 const ProductsList = (props) => {
   return (
-    <div className="grid sm:grid-cols-2 sm:px-10 sm:gap-8  md:grid-cols-3 md:gap-8 md:px-4  lg:grid-cols-4 lg:gap-8  lg:px-12 xl:px-20 2xl:px-28 mt-16 ">
+    <div
+      className="grid grid-cols-1 gap-8 px-10 sm:grid-cols-2 sm:px-10 sm:gap-8  md:grid-cols-3 md:gap-8 md:px-4  
+    lg:grid-cols-4 lg:gap-8 lg:px-12 xl:px-20 2xl:px-28 mt-16 "
+    >
       {props.products.map((prod) => (
         <ItemGrid
           key={prod.id}

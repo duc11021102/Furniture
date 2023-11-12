@@ -60,8 +60,8 @@ const ProductItem = (props) => {
     [amount, id, title, category, price, images, color, cartCtx]
   );
   return (
-    <section className="font-body w-full px-10 lg:px-20 py-6">
-      <div className="w-full grid grid-cols-2 gap-8 md:gap-12 ">
+    <section className="font-body w-full px-8 sm:px-10 lg:px-20 py-6">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 md:gap-12 ">
         <div className="flex justify-center">
           <img
             className="object-cover w-full max-w-xs max-h-96 rounded-md"
@@ -75,7 +75,9 @@ const ProductItem = (props) => {
             {category}
           </p>
           <p className="text-xl mt-4 font-bold ">{price}$</p>
-          <p className="text-base max-w-lg mt-1 font-medium">{description}</p>
+          <p className="text-base max-w-lg mt-1 text-justify font-medium">
+            {description}
+          </p>
           <div className="mt-4 flex flex-col gap-2">
             <p className="text-base font-bold text-neutral-300">Size</p>
             <div className="flex gap-4">
@@ -161,7 +163,7 @@ const ProductItem = (props) => {
           </div>
           <div className="flex flex-col gap-2 border-t-2 border-neutral-200 mt-12 pt-10 text-neutral-400 text-xs md:text-base font-medium ">
             <div className="flex">
-              <p className="w-20">SKU</p>
+              <p className=" w-20">SKU</p>
               <p>: SS001</p>
             </div>
             <div className="flex">

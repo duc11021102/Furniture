@@ -6,8 +6,8 @@ import { BiHeadphone } from "react-icons/bi";
 
 const Policy = () => {
   return (
-    <section className="w-full bg-orange-50 py-16 mt-12 my-5 px-5">
-      <div className="grid sm:grid-cols-2 sm:gap-y-4 md:grid-cols-3 md:gap-y-4 lg:grid-cols-4">
+    <section className="w-full bg-orange-50 py-10 sm:py-16 mt-8 sm:mt-12 my-5 px-5">
+      <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-y-4 md:grid-cols-3 md:gap-y-4 lg:grid-cols-4">
         <div className="flex items-center lg:justify-center gap-2">
           <BiTrophy className="text-5xl" />
           <div className="flex flex-col">

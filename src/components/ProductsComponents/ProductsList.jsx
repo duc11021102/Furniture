@@ -4,7 +4,7 @@ import { lazy } from "react";
 const ItemList = lazy(() => import("./ItemList"));
 const ProductsList = (props) => {
   return (
-    <div className="flex flex-col gap-10 px-8  lg:px-12 xl:px-20 2xl:px-28 mt-16">
+    <div className="flex flex-col gap-10 px-4 sm:px-8 lg:px-12 xl:px-20 2xl:px-28 mt-16">
       {props.products.map((prod) => (
         <ItemList
           key={prod.id}

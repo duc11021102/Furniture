@@ -29,8 +29,11 @@ const AuthForm = (props) => {
     [email, password, props]
   );
   return (
-    <div className="font-body w-full flex justify-center py-10">
-      <Form method="post" className="w-96  px-8 py-6 rounded-md shadow-2xl">
+    <div className="font-body w-full flex justify-center py-5 sm:py-10">
+      <Form
+        method="post"
+        className="w-full sm:w-96 px-8 py-6 rounded-md shadow-2xl"
+      >
         <h1 className="text-2xl font-bold text-center my-2">
           {isLogin ? "Login" : "Signin"}
         </h1>

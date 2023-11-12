@@ -6,7 +6,7 @@ import { FiMenu } from "react-icons/fi";
 const FilterItems = (props) => {
   const [layout, setLayout] = useState("grid");
   return (
-    <section className="w-full px-8 lg:px-20 py-6 bg-orange-50 flex justify-between font-body">
+    <section className="w-full px-4 sm:px-8 lg:px-20 py-4 sm:py-6 bg-orange-50 flex justify-between font-body">
       <div className="flex items-center justify-center gap-4">
         <div className="flex font-medium items-center justify-center gap-5 border-r-2 border-black pr-4">
           <CiSliderHorizontal className="hidden md:block text-2xl" />
@@ -34,10 +34,12 @@ const FilterItems = (props) => {
             }
           />
         </div>
-        <p className=" text-base font-medium ">Showing 1–11 of 11 results</p>
+        <p className="hidden sm:block text-base font-medium ">
+          Showing 1–11 of 11 results
+        </p>
       </div>
       <div className="flex text-lg font-medium items-center justify-center gap-5">
-        <p className="text-base font-medium">Sort By</p>
+        <p className="hidden sm:block text-base font-medium">Sort By</p>
         <input
           placeholder="Default"
           className="w-40 text-black text-base px-4  h-10 bg-white border-2 border-gray-200 "

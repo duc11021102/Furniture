@@ -8,18 +8,19 @@ const CartEmpty = () => {
     navigate("/products");
   };
   return (
-    <section className="w-full mt-16">
+    <section className="w-full mt-10 sm:mt-16 px-5">
       <div className="font-body text-center h-72 flex gap-4 flex-col justify-center items-center">
-        <FiShoppingCart className="text-8xl text-yellow-600" />
-        <h1 className="text-black text-3xl font-bold my-4">
+        <FiShoppingCart className=" text-5xl sm:text-8xl text-yellow-600" />
+        <h1 className="text-black text-2xl sm:text-3xl font-bold my-2 sm:my-4">
           Your Cart is Empty!
         </h1>
-        <p className="text-lg font-medium">
+        <p className="text-base sm:text-lg font-medium">
           Must add items on the cart before you proceed to checkout.
         </p>
+
         <div
           onClick={returnHandler}
-          className="flex justify-center items-center max-w-44 text-lg rounded-md py-3 px-3 mx-10  bg-yellow-600 
+          className="flex justify-center items-center max-w-44 text-sm sm:text-lg rounded-md py-3 px-2 sm:px-3 mx-10  bg-yellow-600 
          text-white font-semibold hover:bg-yellow-700 ease-out duration-200"
         >
           <p className="mr-1">RETURN TO SHOP </p>

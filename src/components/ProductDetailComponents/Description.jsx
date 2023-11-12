@@ -1,18 +1,20 @@
 const Description = () => {
   return (
-    <section className="font-body py-10 px-10 lg:px-20 border-t-2 border-neutral-200">
-      <div className="flex flex-col gap-10">
+    <section className="font-body py-10 px-8 sm:px-10 lg:px-20 border-t-2 border-neutral-200">
+      <div className="flex flex-col gap-6 sm:gap-10">
         <div className="flex justify-center text-xl  gap-10 ">
           <h1 className="font-semibold">Description</h1>
-          <h1 className="text-neutral-400">Additional Information</h1>
-          <h1 className="text-neutral-400">Review [5]</h1>
+          <h1 className="hidden sm:block text-neutral-400">
+            Additional Information
+          </h1>
+          <h1 className="hidden sm:block  text-neutral-400">Review [5]</h1>
         </div>
-        <p className="text-neutral-400">
+        <p className=" text-sm sm:text-base text-justify text-neutral-400">
           Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn
           portable active stereo speaker takes the unmistakable look and sound
           of Marshall, unplugs the chords, and takes the show on the road.
         </p>
-        <p className="text-neutral-400 text-justify">
+        <p className="text-sm sm:text-base text-neutral-400 text-justify">
           Weighing in under 7 pounds, the Kilburn is a lightweight piece of
           vintage styled engineering. Setting the bar as one of the loudest
           speakers in its class, the Kilburn is a compact, stout-hearted hero
