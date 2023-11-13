@@ -11,7 +11,7 @@ export default {
         '1/2': '50%',
       },
       backgroundImage: {
-        'home-banner': "url('./src/assets/bg_sofa.webp')",
+        'home-banner': "url('./src/assets/bgsofa.webp')",
         'banner': "url('./src/assets/bannerproducts.webp')"
       }
     },
